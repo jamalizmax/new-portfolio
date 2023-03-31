@@ -162,12 +162,12 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <a href="html/gambar1.html" class="thumbnail">
+            <a href="" class="thumbnail">
               <img src="img/IMG-20230329-WA0003.jpg" />
             </a>
           </div>
           <div class="col-sm-4">
-            <a href="" class="thumbnail">
+            <a href="https://youtu.be/nN_AGrXsC94" class="thumbnail">
               <img src="img/IMG-20230329-WA0004.jpg" />
             </a>
           </div>
@@ -228,6 +228,7 @@
                   placeholder="masukkan email"
                   name="email"
                 />
+                <small id="email-error" class="error-msg"></small>
               </div>
               <div class="form-group">
                 <label for="telp">NO.TELP</label>
@@ -238,6 +239,7 @@
                   placeholder="masukkan no.telp"
                   name="no.telp"
                 />
+                <small id="telp-error" class="error-msg"></small>
               </div>
               <select class="form-control">
                 <option>-- chose category --</option>
@@ -253,7 +255,7 @@
                   placeholder="masukkan pesan"
                   name="pesan"
                 ></textarea>
-                <button id="myButton" type="submit">  <i class="fa fa-spinner fa-spin"></i> Loading...</button>
+                <button id="myButton" type="submit"> kirim </button>
             </form>
             
           </div>
@@ -289,17 +291,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
    
     <script src="js/script.js"></script>
-    <script>
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbySewxt-PIfyQAAEjV0aWgfEa-j7JCR61TDocbBIQnwyXj6qVs0sJtY2OaIPeFPI9kGuQ/exec";
-      const form = document.forms["jml-contact-form"];
-
-     form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => console.log("Success!", response))
-          .catch((error) => console.error("Error!", error.message));
-      });
-    </script>
+  
   </body>
 </html>
