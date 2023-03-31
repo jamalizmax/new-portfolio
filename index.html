@@ -12,15 +12,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-  </head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/7006bb9d6f.js" ></script>
+    
+  
   <body>
     <!-- navbar start -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -208,7 +208,7 @@
         </div>
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
-            <form>
+            <form id="myForm" name="jml-contact-form">
               <div class="form-group">
                 <label for="nama">NAMA</label>
                 <input
@@ -216,6 +216,7 @@
                   id="nama"
                   class="form-control"
                   placeholder="masukkan nama"
+                  name="nama"
                 />
               </div>
               <div class="form-group">
@@ -225,6 +226,7 @@
                   id="email"
                   class="form-control"
                   placeholder="masukkan email"
+                  name="email"
                 />
               </div>
               <div class="form-group">
@@ -234,13 +236,14 @@
                   id="telp"
                   class="form-control"
                   placeholder="masukkan no.telp"
+                  name="no.telp"
                 />
               </div>
               <select class="form-control">
                 <option>-- chose category --</option>
                 <option>music composser</option>
-                <option>content creator</option>
-                <option>web developer</option>
+                <option>song writer</option>
+                <option>konten creator</option>
               </select>
               <div class="form-group">
                 <label for="pesan">PESAN</label>
@@ -248,10 +251,11 @@
                   class="form-control"
                   rows="10"
                   placeholder="masukkan pesan"
+                  name="pesan"
                 ></textarea>
-              </div>
-              <button type="submit">kirim pesan</button>
+                <button id="myButton" type="submit">  <i class="fa fa-spinner fa-spin"></i> Loading...</button>
             </form>
+            
           </div>
         </div>
       </div>
@@ -282,6 +286,20 @@
     <script src="js/jquery.easing.1.3.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+   
     <script src="js/script.js"></script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbySewxt-PIfyQAAEjV0aWgfEa-j7JCR61TDocbBIQnwyXj6qVs0sJtY2OaIPeFPI9kGuQ/exec";
+      const form = document.forms["jml-contact-form"];
+
+     form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
