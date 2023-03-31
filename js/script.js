@@ -97,3 +97,11 @@ function isValidTelp(telp) {
   // Memeriksa apakah nomor telepon cocok dengan pattern
   return telpPattern.test(telp);
 }
+const messageSent = document.querySelector("#messageSent");
+
+function showNotification() {
+  messageSent.classList.remove("hide");
+  setTimeout(function () {
+    messageSent.classList.add("hide");
+  }, 3000);
+}
